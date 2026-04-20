@@ -4,7 +4,7 @@ A single-page web application that allows users to upload ETF weight data, visua
 
 ---
 
-## 🚀 Features
+## Features
 
 - Upload ETF weight CSV files
 - Interactive data table with sorting
@@ -14,7 +14,7 @@ A single-page web application that allows users to upload ETF weight data, visua
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 ### Data Flow
 
@@ -29,7 +29,7 @@ A single-page web application that allows users to upload ETF weight data, visua
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - React
@@ -43,7 +43,7 @@ A single-page web application that allows users to upload ETF weight data, visua
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 ### Backend
 

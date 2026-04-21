@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import DataTable from "./components/dataTable/DataTable";
-import { type EtfMetaDataProps, type LatestPrice } from "./components/dataTable/DataTableTypes";
+import {
+  type EtfMetaDataProps,
+  type LatestPrice,
+} from "./components/dataTable/DataTableTypes";
 import TimeSeriesPlot from "./components/plot/TimeSeriesPlot";
 import HoldingsBarChart from "./components/barChart/HoldingsBarChart";
-import './styles/mainpage.css'
+import "./styles/mainpage.css";
 import type { TimeSeriesPointProps } from "./components/plot/TimeSeriesPlotTypes";
 
 // Main page that conditionally renders data visualization components
@@ -22,9 +25,9 @@ const MainPage: React.FC = () => {
         setLatestPrices(data.latest_prices);
         setPriceData(data.rows);
       }
-    }
+    };
     fetchPriceMetaData();
-  }, [])
+  }, []);
 
   // Handle ETF CSV upload
   // Parse CSV using PapaParse
@@ -40,9 +43,10 @@ const MainPage: React.FC = () => {
         const parsed = results.data.map((row: any) => ({
           name: row.name,
           weight: parseFloat(row.weight),
-          latestClosePrice: latestPrices.find((item) => item.name === row.name).price
+          latestClosePrice: latestPrices.find((item) => item.name === row.name)
+            .price,
         }));
-        setEtfMetaData(parsed)
+        setEtfMetaData(parsed);
       },
     });
   };
@@ -55,31 +59,31 @@ const MainPage: React.FC = () => {
         <div className="card">
           <h3>Upload CSV</h3>
 
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleFileUpload}
-          />
+          <input type="file" accept=".csv" onChange={handleFileUpload} />
         </div>
 
         {/* Data Table */}
-        {etfMetaData.length > 0 && 
+        {etfMetaData.length > 0 && (
           <div>
             <DataTable tableData={etfMetaData} />
           </div>
-        }
+        )}
         {/* Time Series Plot (requires both price data and ETF weights) */}
-        {priceData.length > 0 && etfMetaData.length > 0 && 
+        {priceData.length > 0 && etfMetaData.length > 0 && (
           <div>
-            <TimeSeriesPlot priceData={priceData} etfData={etfMetaData} title="Reconstructed ETF Price"/>
+            <TimeSeriesPlot
+              priceData={priceData}
+              etfData={etfMetaData}
+              title="Reconstructed ETF Price"
+            />
           </div>
-        }
+        )}
         {/* Top 5 Holdings Bar Chart */}
-        {etfMetaData.length > 0 && 
+        {etfMetaData.length > 0 && (
           <div>
-            <HoldingsBarChart data={etfMetaData} title="Top 5 Holdings"/>
+            <HoldingsBarChart data={etfMetaData} title="Top 5 Holdings" />
           </div>
-        }
+        )}
       </div>
     </div>
   );

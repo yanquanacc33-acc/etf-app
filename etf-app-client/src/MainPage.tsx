@@ -38,7 +38,7 @@ const MainPage: React.FC = () => {
       skipEmptyLines: true,
       complete: (results) => {
         const parsed = results.data.map((row: any) => ({
-          name: row.constituent || row.name || row.symbol,
+          name: row.name,
           weight: parseFloat(row.weight),
           latestClosePrice: latestPrices.find((item) => item.name === row.name).price
         }));

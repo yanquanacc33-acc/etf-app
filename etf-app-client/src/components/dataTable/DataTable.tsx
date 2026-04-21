@@ -129,7 +129,7 @@ const DataTable: React.FC<DataTableProps> = ({ tableData }) => {
 									{formatWeight(row.weight)}
 								</td>
 								<td className="table-cell">
-									{row.latestClosePrice}
+									{`$${row.latestClosePrice}`}
 								</td>
 							</tr>
 						))}

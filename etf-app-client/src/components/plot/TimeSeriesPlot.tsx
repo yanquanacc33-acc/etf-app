@@ -1,12 +1,12 @@
-import React, { useMemo } from 'react';
-import { Chart, Series, Title } from '@highcharts/react';
-import type { TimeSeriesPlotProps } from './TimeSeriesPlotTypes';
+import React, { useMemo } from "react";
+import { Chart, Series, Title } from "@highcharts/react";
+import type { TimeSeriesPlotProps } from "./TimeSeriesPlotTypes";
 
 // Render the zoomable time series plot
 const TimeSeriesPlot: React.FC<TimeSeriesPlotProps> = ({
   priceData,
   etfData,
-  title = 'title'
+  title = "title",
 }) => {
   // Build Highcharts data in [timestamp, price] format
   // ETF price for each day = sum of (weight * constituent price)
@@ -17,10 +17,7 @@ const TimeSeriesPlot: React.FC<TimeSeriesPlotProps> = ({
       etfData.forEach((item) => {
         const raw = row[item.name];
 
-        const price =
-          typeof raw === 'number'
-            ? raw
-            : parseFloat(String(raw));
+        const price = typeof raw === "number" ? raw : parseFloat(String(raw));
 
         // Skip invalid values to avoid NaN propagation
         if (!Number.isNaN(price)) {
@@ -28,10 +25,7 @@ const TimeSeriesPlot: React.FC<TimeSeriesPlotProps> = ({
         }
       });
 
-      return [
-        new Date(row['DATE']).getTime(),
-        Number(sum.toFixed(4)),
-      ];
+      return [new Date(row["DATE"]).getTime(), Number(sum.toFixed(4))];
     });
   }, [priceData, etfData]);
 
@@ -41,20 +35,20 @@ const TimeSeriesPlot: React.FC<TimeSeriesPlotProps> = ({
         options={{
           chart: {
             zooming: {
-              type: 'x',
+              type: "x",
             },
           },
           xAxis: {
-            type: 'datetime',
+            type: "datetime",
           },
           yAxis: {
             title: {
-              text: 'Price',
+              text: "Price",
             },
           },
           tooltip: {
-            xDateFormat: '%Y-%m-%d',
-            pointFormat: '<b>${point.y:.2f}</b>',
+            xDateFormat: "%Y-%m-%d",
+            pointFormat: "<b>${point.y:.2f}</b>",
           },
           legend: {
             enabled: false,

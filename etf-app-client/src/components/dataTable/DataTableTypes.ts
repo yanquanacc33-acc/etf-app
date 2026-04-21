@@ -1,33 +1,33 @@
 export interface SortableThProps {
-    label: string;
-    active: boolean;
-    direction: SortDirection;
-    onClick: () => void;
-    align?: "left" | "right";
-};
+  label: string;
+  active: boolean;
+  direction: SortDirection;
+  onClick: () => void;
+  align?: "left" | "right";
+}
 
 export interface EtfMetaDataProps {
-    name: string;
-    weight: number;
-    latestClosePrice: number;
-};
+  name: string;
+  weight: number;
+  latestClosePrice: number;
+}
 
 export interface DataTableProps {
-    tableData: EtfMetaDataProps[];
-};
-  
+  tableData: EtfMetaDataProps[];
+}
+
 export enum SortKey {
-    Constituent = 'constituent',
-    Weight = 'weight',
-    LatestClose = 'latestClose'
+  Constituent = "constituent",
+  Weight = "weight",
+  LatestClose = "latestClose",
 }
 
 export enum SortDirection {
-    Asc = 'ascending',
-    Desc = 'descending'
+  Asc = "ascending",
+  Desc = "descending",
 }
 
-export interface LatestPrice { 
-    name: string;
-    price: number;
+export interface LatestPrice {
+  name: string;
+  price: number;
 }

@@ -19,17 +19,19 @@ A single-page web application that allows users to upload ETF weight data, visua
 ### Architecture
 
 **Frontend (React + TypeScript)**
-  - Handles user interactions (CSV upload, table sorting, visualization)
-  - Performs data transformations (e.g., merging weights with latest prices)
-  - Renders interactive components such as:
-    - DataTable
-    - TimeSeriesPlot (ETF price reconstruction over time)
-    - HoldingsBarChart (top 5 holdings)
+
+- Handles user interactions (CSV upload, table sorting, visualization)
+- Performs data transformations (e.g., merging weights with latest prices)
+- Renders interactive components such as:
+  - DataTable
+  - TimeSeriesPlot (ETF price reconstruction over time)
+  - HoldingsBarChart (top 5 holdings)
 
 **Backend (FastAPI + Pandas)**
-  - Loads and preprocesses historical price CSV data
-  - Cleans and validates data (date parsing, numeric conversion)
-  - Provides a REST API returning frontend-friendly JSON
+
+- Loads and preprocesses historical price CSV data
+- Cleans and validates data (date parsing, numeric conversion)
+- Provides a REST API returning frontend-friendly JSON
 
 ### Assumptions
 
@@ -47,7 +49,6 @@ A single-page web application that allows users to upload ETF weight data, visua
 
 - Styling is intentionally minimal in this implementation, as the focus is on functionality, data flow, and system design. Further UI/UX improvements can be added in future iterations.
 
-
 ### Data Flow
 
 1. User uploads ETF weights CSV
@@ -64,12 +65,14 @@ A single-page web application that allows users to upload ETF weight data, visua
 ## Tech Stack
 
 ### Frontend
+
 - React
 - TypeScript
 - Highcharts
 - CSS
 
 ### Backend
+
 - FastAPI
 - Pandas
 
@@ -101,10 +104,10 @@ Aeron Chen
 
 This project demonstrates:
 
-- Full-stack development  
-- Data processing (pandas)  
-- API (FastAPI)  
-- Frontend (React)  
+- Full-stack development
+- Data processing (pandas)
+- API (FastAPI)
+- Frontend (React)
 - Data visualization (Highcharts)
 
 ---

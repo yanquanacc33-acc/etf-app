@@ -82,15 +82,15 @@ A single-page web application that allows users to upload ETF weight data, visua
 
 ### Backend
 
-cd etf-app-server
-pip install fastapi uvicorn pandas
-uvicorn main:app --reload
+- cd etf-app-server
+- pip install fastapi uvicorn pandas
+- uvicorn main:app --reload
 
 ### Frontend
 
-cd etf-app
-npm install
-npm run dev
+- cd etf-app
+- npm install
+- npm run dev
 
 ---
 
